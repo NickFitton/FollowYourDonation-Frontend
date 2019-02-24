@@ -1,0 +1,50 @@
+
+<div class="background">
+    <div class="content">
+        <div class="title">
+            <img [src]="charityIconUrl">
+            <h1>{{charityName}}</h1>
+        </div>
+        <p class="easy_read">{{charityDescription}}</p>
+        <p class="easy_read">1% of all dontions go towards server upkeep.</p>
+        <div class="contribution">
+            <div class="donation">
+                <form>
+                    <mat-form-field>
+                        <span class="aLittleBigger" matPrefix>£ &nbsp;</span>
+                        <input matInput placeholder="Donation Amount" name="donation" [(ngModel)]="donationAmount"
+                               (input)="donationChanged()">
+                    </mat-form-field>
+                </form>
+                <button mat-raised-button color="primary" (click)="donate()">Donate Now</button>
+            </div>
+            <mat-card>
+                <mat-card-title>
+                        Configure fund distribution
+                </mat-card-title>
+                <mat-card-subtitle>Money left to distribute: £{{remainingMoney}}</mat-card-subtitle>
+
+
+                <table>
+                    <tr *ngFor="let project of projects">
+                        <td class="table_name easy_read">{{project.name}}</td>
+                        <td class="table_slider">
+                            <mat-slider min="1" [max]="donationAmount" step="0.5" [value]="project.amount"
+                                        (input)="sliderChange(project, $event)"></mat-slider>
+                        </td>
+                        <td class="table_amount">£{{project.amount}}</td>
+                    </tr>
+                </table>
+            </mat-card>
+        </div>
+    </div>
+    <div class="row" fxLayoutGap="8px">
+        <span>FAQ</span>
+        <span>·</span>
+        <span>Contact Us</span>
+        <span>·</span>
+        <span>About Us</span>
+        <span>·</span>
+        <span>Cookie Policy</span>
+    </div>
+</div>

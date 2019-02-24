@@ -1,0 +1,114 @@
+
+.content
+  display flex
+  flex-flow column nowrap
+  justify-content space-between
+  align-items center
+  background-color #d9d9d9
+  min-height calc(100vh - 64px)
+
+.overlay-image
+  position relative
+  width 288px
+  height 192px
+  margin 16px
+  margin-bottom 16px
+  cursor pointer
+  background-color #FFFFFF
+  -webkit-border-radius: 16px
+  -moz-border-radius: 16px
+  border-radius: 16px
+  &:hover
+    background-color #45F274
+    .text
+      color #FFF
+
+.overlay-image .image
+  display block
+  width 100%
+  background-color #fff
+  height auto
+  -webkit-transition opacity 1s, box-shadow 0.5s, background-color 1s
+  -moz-transition opacity 1s, box-shadow 0.5s, background-color 1s
+  -ms-transition opacity 1s, box-shadow 0.5s, background-color 1s
+  -o-transition opacity 1s, box-shadow 0.5s, background-color 1s
+  transition opacity 1s, box-shadow 0.5s, background-color 1s
+
+.overlay-image .text
+  font-size 18px
+  line-height 1em
+  text-align center
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%, -50%)
+  width 100%
+
+.text
+  opacity 1
+  color #020718
+  display flex
+  flex-flow column nowrap
+  -webkit-transition font-size 1s, color 0.5s
+  -moz-transition font-size 1s, color 0.5s
+  -ms-transition font-size 1s, color 0.5s
+  -o-transition font-size 1s, color 0.5s
+  transition font-size 1s, color 0.5s
+
+.categories, form
+  display flex
+  flex-flow row wrap
+  justify-content space-around
+
+.charities
+  margin-top 32px
+  margin-bottom 16px
+  width 80%
+  display flex
+  flex-flow column wrap
+  justify-content flex-start
+  background-color #fff
+  opacity 0.85
+
+.mat-form-field
+  width 512px
+input
+  font-size 48px
+  font-weight 700
+mat-primary
+  color #ff0000
+
+.mat-list-item
+  margin-left 32px
+  font-size 20px
+  font-weight 700
+  color #041212
+  &:hover
+    color #45F274
+    //background-color #e6e6e6
+    cursor pointer
+
+.row
+  width 100%
+  display flex
+  flex-flow row wrap
+  justify-content center
+  align-items center
+  padding-top 64px
+  padding-bottom 64px
+  background-color #eee
+
+.padded
+  padding-left 32px
+  padding-right 32px
+
+.cancel
+  cursor pointer
+  position absolute
+  left 16px
+  top 82px
+  font-size 48px
+  color #fff
+
+h2
+  padding-left 48px

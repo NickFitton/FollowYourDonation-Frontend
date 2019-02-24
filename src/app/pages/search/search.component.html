@@ -1,0 +1,29 @@
+<div class="content">
+    <div class="padded">
+        <div class="categories" *ngIf="search === ''">
+            <div class="overlay-image" *ngFor="let category of categories" (click)="searchFor(category.name[0])">
+                <div class="text">
+                    <span *ngFor="let line of category.name">{{line}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="charities" *ngIf="search !== undefined && search !== null && search !== ''">
+        <h2>Search Results:</h2>
+        <mat-list>
+            <mat-list-item *ngFor="let charity of filteredCharities()" (click)="navTo(charity.name)">-
+                {{charity.name}}
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <div class="row" fxLayoutGap="8px">
+        <span>FAQ</span>
+        <span>·</span>
+        <span>Contact Us</span>
+        <span>·</span>
+        <span>About Us</span>
+        <span>·</span>
+        <span>Cookie Policy</span>
+    </div>
+</div>
+<mat-icon class="cancel" *ngIf="search !== ''" (click)="search = ''">keyboard_backspace</mat-icon>
