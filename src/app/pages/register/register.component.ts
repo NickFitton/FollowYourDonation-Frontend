@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
     private firstName: string;
     private lastName: string;
     private phoneNumber: string;
+    private makingRequest: boolean;
 
     private static BASE_URL = 'https://47d28a03.ngrok.io';
 
@@ -21,18 +22,21 @@ export class RegisterComponent implements OnInit {
         this.firstName = '';
         this.lastName = '';
         this.phoneNumber = '';
+        this.makingRequest = false;
     }
 
     ngOnInit() {
     }
 
     register(): void {
+        this.makingRequest = true;
         const user = new UserModel(this.firstName, this.lastName, this.phoneNumber);
         console.log(user);
         this.client.post<IdBean>(RegisterComponent.BASE_URL + '/users', user)
             .toPromise().then(bean => {
             return bean.id;
         }).then(id => {
+            this.makingRequest = false;
             sessionStorage.setItem('userId', id);
             this.router.navigate(['/search']);
         });

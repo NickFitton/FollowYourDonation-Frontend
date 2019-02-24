@@ -9,14 +9,33 @@
         </div>
     </div>
     <div class="charities" *ngIf="search !== undefined && search !== null && search !== ''">
-        <h2>Search Results:</h2>
+        <div class="row">
+            <h2>Search Results:</h2>
+            <mat-form-field>
+                <mat-select placeholder="Order Orgs" [(ngModel)]="ordering">
+                    <mat-option value="[A-Z]">
+                        Ascending [A-Z]
+                    </mat-option>=
+=
+                    <mat-option value="[Z-A]">
+                        Ascending [Z-A]
+                    </mat-option>
+                    <mat-option value="[Most-Least]">
+                        Popularity [Most-Least]
+                    </mat-option>
+                    <mat-option value="[Least-Most]">
+                        Popularity [Least-Most]
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
         <mat-list>
             <mat-list-item *ngFor="let charity of filteredCharities()" (click)="navTo(charity.name)">-
                 {{charity.name}}
             </mat-list-item>
         </mat-list>
     </div>
-    <div class="row" fxLayoutGap="8px">
+    <div class="footer" fxLayoutGap="8px">
         <span>FAQ</span>
         <span>·</span>
         <span>Contact Us</span>

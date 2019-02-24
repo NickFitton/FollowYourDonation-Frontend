@@ -11,8 +11,10 @@ export class SearchComponent implements OnInit {
     categories: SearchCategory[];
     charities: Charity[];
     search: string;
+    ordering: string;
 
     constructor(private router: Router) {
+        this.ordering = '[A-Z]';
         const urlSegs = this.router.url.split('?');
         if (urlSegs.length > 1) {
             const params = urlSegs[1].split('&');
@@ -55,6 +57,7 @@ export class SearchComponent implements OnInit {
         this.charities.push(new Charity('Dogs Without Borders', ['Animals'], ''));
         this.charities.push(new Charity('Blue Cross', ['Animals'], ''));
         this.charities.push(new Charity('Endless Pawsibilities', ['Animals'], ''));
+        this.charities.push(new Charity('Mental Health Foundation', ['Health'], ''));
 
         this.charities = this.charities.sort((a, b) => {
             if (a.name < b.name) {

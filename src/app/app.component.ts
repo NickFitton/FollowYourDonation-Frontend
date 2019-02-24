@@ -26,4 +26,10 @@ export class AppComponent {
             }
         });
     }
+
+    goTo(url: string) {
+        console.log('Nav to ' + url);
+        this.router.navigate([url]);
+    }
+
 }

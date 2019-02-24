@@ -88,12 +88,22 @@ mat-primary
     //background-color #e6e6e6
     cursor pointer
 
-.row
-  width 100%
+.row, .footer
   display flex
-  flex-flow row wrap
-  justify-content center
+  flex-flow row nowrap
   align-items center
+
+.row
+  justify-content space-between
+  padding-left 48px
+  padding-right 48px
+
+.mat-form-field
+  width 20%
+
+.footer
+  width 100%
+  justify-content center
   padding-top 64px
   padding-bottom 64px
   background-color #eee
@@ -109,6 +119,3 @@ mat-primary
   top 82px
   font-size 48px
   color #fff
-
-h2
-  padding-left 48px

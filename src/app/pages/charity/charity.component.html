@@ -2,11 +2,11 @@
 <div class="background">
     <div class="content">
         <div class="title">
-            <img [src]="charityIconUrl">
+            <img [src]="charityIconUrl" [ngClass]="{'hijacked': hijacked}">
             <h1>{{charityName}}</h1>
         </div>
-        <p class="easy_read">{{charityDescription}}</p>
-        <p class="easy_read">1% of all dontions go towards server upkeep.</p>
+        <p class="easy_read" *ngFor="let paragraph of charityDescription">{{paragraph}}</p>
+        <p class="easy_read">1% of all donations go to our server upkeep.</p>
         <div class="contribution">
             <div class="donation">
                 <form>
@@ -22,7 +22,7 @@
                 <mat-card-title>
                         Configure fund distribution
                 </mat-card-title>
-                <mat-card-subtitle>Money left to distribute: £{{remainingMoney}}</mat-card-subtitle>
+                <mat-card-subtitle>Money left to distribute: £{{remainingMoney.toPrecision(2)}}</mat-card-subtitle>
 
 
                 <table>
@@ -32,9 +32,12 @@
                             <mat-slider min="1" [max]="donationAmount" step="0.5" [value]="project.amount"
                                         (input)="sliderChange(project, $event)"></mat-slider>
                         </td>
-                        <td class="table_amount">£{{project.amount}}</td>
+                        <td class="table_amount">£{{project.amount.toPrecision(2)}}</td>
                     </tr>
                 </table>
+                <span>
+                    We take a cut of £{{tipAmount}}
+                </span>
             </mat-card>
         </div>
     </div>
